@@ -31,9 +31,7 @@ amarillo = 0xF7FE2E
     # Leer yml
 #    info = yml.full_load(y)
 
-def escribir(arch, datos):
-    with open(arch, 'w') as fi:
-        js.dump(datos, fi)
+
 
 dts = {}
 def json():
@@ -46,23 +44,27 @@ def json():
             dts = {}
             return dts
 
+def escribir(arch, datos):
+    with open(arch, 'w') as fi:
+        js.dump(datos, fi)
+
 # Sacar path links
 datos = json()
 links = datos['links']
 # Transformaciones
-ssj = links['ssj']
-ssj2 = links['ssj2']
-ssj3 = links['ssj3']
-ssjl = links['ssjl']
-ssj4 = links['ssj4']
-ssg = links['ssg']
-ssgss = links['ssgss']
-ssgsse = links['ssgsse']
-ssgsskk = links['ssgsskk']
-ssrose = links['ssrose']
-mng = links['mng']
-ozaru = links['ozaru']
-gozaru = links['g-ozaru']
+ssj = datos['links']['ssj']
+ssj2 = datos['links']['ssj2']
+ssj3 = datos['links']['ssj3']
+ssjl = datos['links']['ssjl']
+ssj4 = datos['links']['ssj4']
+ssg = datos['links']['ssg']
+ssgss = datos['links']['ssgss']
+ssgsse = datos['links']['ssgsse']
+ssgsskk = datos['links']['ssgsskk']
+ssrose = datos['links']['ssrose']
+mng = datos['links']['mng']
+ozaru = datos['links']['ozaru']
+gozaru = datos['links']['g-ozaru']
 # Creador
 dev_id = datos['dev-id']
 
@@ -220,6 +222,10 @@ async def set_prefix(ctx, pr):
 async def creator(ctx):
     await ctx.send('Mi creador es <@' + dev_id + '>')
 
+# <------Repositorio GitHub------->
+@bot.command(name='github')
+async def github(ctx):
+    await ctx.send('Repositorio GitHub: https://github.com/EliottoYT/DragonBall-Roleplay-Bot')
 
 # Encender bot
 if inicio:
